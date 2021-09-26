@@ -1,4 +1,4 @@
-package com.example.android.newsappvaleriya.ui.list
+package com.example.android.newsappvaleriya.ui.newsList
 
 import android.util.Log
 import androidx.lifecycle.LiveData

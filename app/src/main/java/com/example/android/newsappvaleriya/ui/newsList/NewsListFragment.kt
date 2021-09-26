@@ -1,4 +1,4 @@
-package com.example.android.newsappvaleriya.ui.list
+package com.example.android.newsappvaleriya.ui.newsList
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.android.newsappvaleriya.R
 import com.example.android.newsappvaleriya.databinding.NewsListFragmentBinding
 
 class NewsListFragment : Fragment() {

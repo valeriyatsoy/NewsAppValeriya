@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.android.newsappvaleriya.R
-import com.example.android.newsappvaleriya.ui.list.NewsListFragment
+import com.example.android.newsappvaleriya.ui.newsList.NewsListFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
