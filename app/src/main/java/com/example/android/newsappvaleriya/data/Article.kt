@@ -3,7 +3,7 @@ package com.example.android.newsappvaleriya.data
 import java.net.URL
 
 data class Article(
-    val source: ArticleSource, //todo DI?
+    val source: ArticleSource,
     val author: String,
     val title: String,
     val desc: String,
