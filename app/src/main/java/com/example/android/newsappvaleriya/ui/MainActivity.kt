@@ -12,14 +12,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        replaceFragment(NewsListFragment.newInstance())
+        replaceFragment(NewsListFragment.newInstance(), true)
     }
 
-    fun replaceFragment(fragment: Fragment) {
+    fun replaceFragment(fragment: Fragment, addToBackStack: Boolean) {
         val transaction =
             supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, fragment)
-        transaction.addToBackStack(fragment.javaClass.name)
+        if (addToBackStack) transaction.addToBackStack(fragment.javaClass.name)
         transaction.commit()
     }
 }

@@ -10,23 +10,26 @@ import com.bumptech.glide.Glide
 import com.example.android.newsappvaleriya.data.Article
 import com.example.android.newsappvaleriya.databinding.ArticleListItemBinding
 
-class NewsAdapter :
+private typealias RepoClickListener = (Article) -> Unit
+
+class NewsAdapter(private val clickListener: RepoClickListener) :
     ListAdapter<Article, NewsAdapter.ArticleViewHolder>(NewsDiffCallback()) {
 
-    class ArticleViewHolder(val binding: ArticleListItemBinding, val context: Context) :
+    class ArticleViewHolder(
+        val binding: ArticleListItemBinding,
+        private val clickListener: RepoClickListener,
+        private val context: Context
+    ) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(a: Article) {
-            Glide.with(context).load(a.urlToImage).into(binding.itemImg)
-
             binding.apply {
+                Glide.with(context).load(a.urlToImage).into(itemImg)
                 itemTitle.text = a.title
                 itemDesc.text = a.desc
-            }
-
-
-            itemView.setOnClickListener {
-                //todo open details fragment
+                itemAuthor.text = a.author
+                itemPublishedAt.text = a.publishedAt
+                root.setOnClickListener { clickListener.invoke(a) }
             }
         }
     }
@@ -37,6 +40,7 @@ class NewsAdapter :
             ArticleListItemBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             ),
+            clickListener,
             parent.context
         )
     }

@@ -2,12 +2,15 @@ package com.example.android.newsappvaleriya.ui.newsList
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.newsappvaleriya.databinding.FragmentNewsListBinding
+import com.example.android.newsappvaleriya.ui.MainActivity
+import com.example.android.newsappvaleriya.ui.newsDetail.NewsDetailFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,7 +42,13 @@ class NewsListFragment : Fragment() {
     }
 
     private fun setUpNewsList() {
-        newsAdapter = NewsAdapter()
+        newsAdapter = NewsAdapter { article ->
+            if (article.url == null) return@NewsAdapter
+            (requireActivity() as MainActivity).replaceFragment(
+                NewsDetailFragment.newInstance(article.url),
+                false
+            )
+        }
 
         binding.newsRecycler.apply {
             layoutManager = LinearLayoutManager(requireActivity())
