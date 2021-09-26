@@ -1,0 +1,5 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <dimen name="new_item_text_vertical_margin">8dp</dimen>
+
+</resources>
