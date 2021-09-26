@@ -2,7 +2,6 @@ package com.example.android.newsappvaleriya.ui.newsList
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -46,7 +45,7 @@ class NewsListFragment : Fragment() {
             if (article.url == null) return@NewsAdapter
             (requireActivity() as MainActivity).replaceFragment(
                 NewsDetailFragment.newInstance(article.url),
-                false
+                true
             )
         }
 

@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        replaceFragment(NewsListFragment.newInstance(), true)
+        replaceFragment(NewsListFragment.newInstance(), false)
     }
 
     fun replaceFragment(fragment: Fragment, addToBackStack: Boolean) {
