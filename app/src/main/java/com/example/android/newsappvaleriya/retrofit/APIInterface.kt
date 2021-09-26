@@ -1,6 +1,6 @@
 package mm.com.csstechnology.elottery.retrofit
 
-import com.example.android.newsappvaleriya.retrofit.responses.NewsListResponse
+import com.example.android.newsappvaleriya.retrofit.responses.GetTopHeadlinesResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -10,5 +10,5 @@ interface APIInterface {
    suspend fun getTopHeadlines(
         @Query ("country") country: String,
         @Query ("category") category: String,
-   ): Call<NewsListResponse>
+   ): Call<GetTopHeadlinesResponse>
 }
