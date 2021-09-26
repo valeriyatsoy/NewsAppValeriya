@@ -15,7 +15,7 @@ class RetrofitBuilder private constructor() {
         .create()
 
     //                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-    val apiInterface: APIInterface
+    val apiService: APIService
         get() {
             if (retrofit == null) {
                 retrofit = Retrofit.Builder()
@@ -24,7 +24,7 @@ class RetrofitBuilder private constructor() {
                     .client(client)
                     .build()
             }
-            return retrofit!!.create(APIInterface::class.java)
+            return retrofit!!.create(APIService::class.java)
         }
 
     private val client: OkHttpClient

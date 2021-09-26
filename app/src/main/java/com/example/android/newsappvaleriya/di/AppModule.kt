@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import mm.com.csstechnology.elottery.retrofit.APIInterface
+import mm.com.csstechnology.elottery.retrofit.APIService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -15,11 +15,11 @@ import javax.inject.Singleton
 object AppModule {
     @Singleton
     @Provides
-    fun provideAPI(): APIInterface {
+    fun provideApiService(): APIService {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(Constants.API_BASE_URL)
             .build()
-            .create(APIInterface::class.java)
+            .create(APIService::class.java)
     }
 }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.android.newsappvaleriya.R
+import com.example.android.newsappvaleriya.databinding.NewsListFragmentBinding
 
 class NewsListFragment : Fragment() {
 
@@ -15,18 +16,23 @@ class NewsListFragment : Fragment() {
     }
 
     private lateinit var viewModel: NewsListViewModel
+    private lateinit var newAdapter: NewsAdapter
+
+    private var _binding: NewsListFragmentBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.news_list_fragment, container, false)
+        _binding = NewsListFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(NewsListViewModel::class.java)
-        // TODO: Use the ViewModel
+
     }
 
 }
